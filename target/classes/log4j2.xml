@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorInterval="60">
+
+	<Appenders>
+		<Console name="Console-Appender" target="SYSTEM_OUT">
+			<PatternLayout>
+				<pattern>
+					%d{ISO8601} %-5p [%c] - %m%n
+				</pattern>
+			</PatternLayout>
+		</Console>
+		<File name="MyFile" fileName="logs/app.log">
+			<PatternLayout>
+				<Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+			</PatternLayout>
+		</File>
+		</Appenders>
+
+	<Loggers>
+		<!-- Hibernate Logger -->
+		<!-- -->
+		<Logger name="org.hibernate" level="info"/>
+		<Logger name="org.hibernate.SQL" level="debug"/>
+		<Logger name="org.hibernate.type.descriptor.sql" level="trace"/>
+		 
+		
+		
+		<Root level="info">
+			<AppenderRef ref="Console-Appender" />
+			<AppenderRef ref="MyFile" />
+		</Root>
+	</Loggers>
+
+</Configuration>
